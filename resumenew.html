@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resume</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/all.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .background {
+            margin: 0;
+            padding: 0;
+            background-image: url(/img/pexels-ylanite-koppens-934062.jpg);
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+        }
+
+        @media (max-width:576px) {
+            .background {
+                background-image: url(/img/pexels-ylanite-koppens-9340622.png);
+                background-size: contain;
+                background-position: center bottom;
+            }
+        }
+
+        .navBar {
+            margin: 0;
+            padding: 0;
+            position: fixed;
+        }
+
+
+        #menuToggle {
+            display: block;
+            position: relative;
+            top: 50px;
+            left: 50px;
+            width: fit-content;
+            z-index: 1;
+
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #menuToggle a {
+            text-decoration: none;
+            color: #232323;
+
+            transition: color 0.3s ease;
+        }
+
+        #menuToggle a:hover {
+            color: tomato;
+        }
+
+
+        #menuToggle input {
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+
+            cursor: pointer;
+
+            opacity: 0;
+            /* hide this */
+            z-index: 2;
+            /* and place it over the hamburger */
+
+            -webkit-touch-callout: none;
+        }
+
+        /*
+ * Just a quick hamburger
+ */
+        #menuToggle span {
+            display: block;
+            width: 33px;
+            height: 4px;
+            margin-bottom: 5px;
+            position: relative;
+
+            background: #cdcdcd;
+            border-radius: 3px;
+
+            z-index: 1;
+
+            transform-origin: 4px 0px;
+
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                opacity 0.55s ease;
+        }
+
+        #menuToggle span:first-child {
+            transform-origin: 0% 0%;
+        }
+
+        #menuToggle span:nth-last-child(2) {
+            transform-origin: 0% 100%;
+        }
+
+        /* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+        #menuToggle input:checked~span {
+            opacity: 1;
+            transform: rotate(45deg) translate(-2px, -1px);
+            background: #232323;
+        }
+
+        /*
+ * But let's hide the middle one.
+ */
+        #menuToggle input:checked~span:nth-last-child(3) {
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2);
+        }
+
+        /*
+ * Ohyeah and the last one should go the other direction
+ */
+        #menuToggle input:checked~span:nth-last-child(2) {
+            transform: rotate(-45deg) translate(0, -1px);
+        }
+
+        /*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+        #menu {
+            position: absolute;
+            width: 300px;
+            margin: -100px 0 0 -50px;
+            padding: 50px;
+            padding-top: 125px;
+
+            background: #ededed;
+            list-style-type: none;
+            -webkit-font-smoothing: antialiased;
+            /* to stop flickering of text in safari */
+
+            transform-origin: 0% 0%;
+            transform: translate(-100%, 0);
+
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+
+        #menu li {
+            padding: 10px 0;
+            font-size: 22px;
+        }
+
+        /*
+ * And let's slide it in from the left
+ */
+        #menuToggle input:checked~ul {
+            transform: none;
+        }
+
+        audio {
+            display: none;
+            position: fixed;
+            bottom: 1%;
+            right: 1%;
+        }
+
+        @media (max-width:576px) {
+            audio {
+                display: none;
+            }
+        }
+
+
+        /* home section */
+        .home {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        .homeImgWrap {
+            border-radius: 50%;
+            overflow: hidden;
+            padding: 0;
+            margin: auto
+        }
+
+        img {
+            width: 100%;
+            /* height: 100%; */
+            object-fit: contain;
+        }
+
+        .wrapper {
+            padding: 40px;
+            /* width: 500px; */
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .roles {
+            font-size: 30px;
+            height: 50px;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+
+        .roles div {
+            color: rgb(42, 42, 42);
+            height: 50px;
+            transition: margin-top 1s ease-in-out;
+            text-shadow: black 0.1em 0.1em 0.2em
+        }
+
+        /* aboutme section */
+        .about {
+            width: 100%;
+            height: 100vh;
+            /* background-color: pink; */
+            /* padding: 100px 0px; */
+            background-image: linear-gradient(to top, #a8a8a852 0%, #8383833a 100%);
+        }
+
+        .textBigWrap {
+            background-color: rgba(255, 255, 255, 0.568);
+            margin: 0;
+        }
+
+        .iconWrap {
+            font-size: 20px;
+        }
+
+        i {
+            width: 100%;
+            height: 100%;
+            margin: 5px;
+        }
+
+        @media (max-width:576px) {
+            .iconWrap {
+                font-size: 20px;
+                justify-content: space-between;
+            }
+        }
+
+        .htmlWrap,
+        .cssWrap,
+        .jsWrap,
+        .jqWrap,
+        .bootstrapWrap,
+        .mySQLWrap,
+        .phpWrap {
+            width: 50px;
+            height: 50px;
+            object-position: center;
+        }
+
+        .skillWrap {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: black;
+        }
+
+        .background2 {
+            margin: 0;
+            padding: 0;
+            background-image: url(/img/pexels-mikhail-nilov-6893329.jpg);
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+        }
+
+        @media (max-width:576px) {
+            .background2 {
+                background-image: url(/img/pexels-mikhail-nilov-68933292.png);
+                background-size: contain;
+                background-position: center bottom;
+            }
+        }
+
+        .project {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .projectTitle {
+            text-align: center;
+        }
+
+        .projectPic {
+            margin: 20px 0px;
+            border-radius: 10%/90%;
+            overflow: hidden;
+        }
+
+        .projectWrap .row {
+            /* background-color: rgba(158, 156, 156, 0.383); */
+            background-image: linear-gradient(to top, #a8a8a852 0%, #8383833a 100%);
+            border-radius: 3%/5%;
+            ;
+        }
+
+        @media (max-width:576px) {
+            .project {
+                padding: 100px 0px;
+            }
+
+            .projectWrap .row {
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--    Made by Erik Terwan    -->
+    <!--   24th of November 2015   -->
+    <!--        MIT License        -->
+    <section class="background">
+
+        <div class="navBar">
+            <nav role="navigation">
+                <div id="menuToggle">
+                    <!--
+              A fake / hidden checkbox is used as click reciever,
+              so you can use the :checked selector on it.
+              -->
+                    <input type="checkbox" />
+                    <!--
+              Some spans to act as a hamburger.
+        
+              They are acting like a real hamburger,
+              not that McDonalds stuff.
+              -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <!--
+              Too bad the menu has to be inside of the button
+              but hey, it's pure CSS magic.
+              -->
+                    <ul id="menu">
+                        <a href="#home">
+                            <li>Home</li>
+                        </a>
+                        <a href="#about">
+                            <li>About</li>
+                        </a>
+                        <a href="#project">
+                            <li>project</li>
+                        </a>
+                        <!-- <a href="#">
+                            <li>Contact</li>
+                        </a>
+                        <a href="https://erikterwan.com/" target="_blank">
+                            <li>Show me more</li>
+                        </a> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- <audio src="/img/Ocean Waves Sound for Soothing Relaxation, Peaceful  Nature Sound for Sleep.mp3"
+            autoplay="true" controls></audio> -->
+        <section class="home" id="home">
+            <div class="container d-flex flex-column align-item-center justify-content-center">
+                <div class="row flex-column align-item-center justify-content-center">
+                    <div class="col-9 col-sm-3 homeImgWrap">
+                        <img src="./img/1604330362561sharp.jpg" alt="">
+                    </div>
+                    <div class="wrapper col-12 col-sm-10">
+                        <div class="roles">
+                            <div>
+                                I'm a web developer.
+                            </div>
+                            <div>
+                                front-end enginner.
+                            </div>
+                            <div>
+                                I take challengings.
+                            </div>
+                            <div>
+                                I'm resposible.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about" id="about">
+            <div class="aboutmeWrap container d-flex flex-column justify-content-center align-item-center">
+                <div class="row d-flex-column justify-content-center align-item-center">
+                    <div class="col-8 col-sm-4 d-none d-sm-flex">
+                        <img src="./img/IMG_5643 (1).JPG" alt="">
+                    </div>
+                    <div class="col-10 col-sm-4 d-flex flex-column justify-content-between textBigWrap">
+                        <div class="textWrap">
+                            <h1>關於我About Me</h1>
+                            <p>
+                                我叫Vivi<br>
+                                正朝向網頁前端工程師邁進<br>
+                                歷經了長達6個月的密集訓練<br>
+                                從零基礎到現在已可以獨立完成網頁<br>
+                                截至目前為止我已完成12項以上網頁相關的作品<br>
+                                其中包含切版、RWD、js的動態效果、串接API、<br>
+                                自建MySQL資料庫、Php、UIUX網頁開發相關技能<br>
+                                以及繪圖軟體Ai、Ps<br>
+                                歡迎到我的作品集參閱
+                            </p>
+                        </div>
+                        <div class="iconandlogo">
+                            <div class="skillWrap d-flex align-item-center">
+                                <div class="htmlWrap">
+                                    <img src="./img/200px-HTML5_logo_and_wordmark.svg.png" alt="">
+                                </div>
+                                <div class="cssWrap">
+                                    <img src="./img/css.png" alt="">
+                                </div>
+                                <div class="jsWrap">
+                                    <img src="./img/Javascript-shield.png" alt="">
+                                </div>
+                                <div class="jqWrap">
+                                    <img src="./img/png-clipart-jquery-ui-javascript-web-browser-pasargad-text-trademark.png"
+                                        alt="">
+                                </div>
+                                <div class="bootstrapWrap">
+                                    <img src="./img/Bootstrap.png" alt="">
+                                </div>
+                                <div class="mySQLWrap">
+                                    <img src="./img/png-clipart-mysql-database-graphics-microsoft-access-logo-blue-web-design-thumbnail.png"
+                                        alt="">
+                                </div>
+                                <div class="phpWrap">
+                                    <img src="./img/下載.png" alt="">
+                                </div>
+                            </div>
+                            <div class="iconWrap d-flex">
+                                <div class="github"><a href="https://github.com/fayevivi" target="_blank"><i
+                                            class="fab fa-github"></i></a></div>
+                                <div class="envelope"><i class="far fa-envelope"></i></div>
+                                <div class="instagram"><i class="fab fa-instagram"></i></div>
+                                <div class="linkedin"><i class="fab fa-linkedin"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="project background2" id="project">
+
+            <div class="projectWrap container d-flex flex-column justify-content-center ">
+
+                <div class="row d-flex-column justify-content-center align-item-center ">
+
+                    <div class="projectTitle col-12">
+                        <h1>作品集Project</h1>
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <img src="./img/擷取.PNG" alt="">
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <a href="https://drive.google.com/drive/folders/1s0ET-WrdbqcsaA31seuGcRCpN7oaF_Ey"
+                            target="_blank">
+                            <img src="./img/PINKOI.productDetails ScreenShot.PNG" alt="">
+                        </a>
+
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <a href="https://fayevivi.github.io/PIAGET-layout-practice/PIAGET.html" target="_blank">
+                            <img src="./img/PIAGET ScreenShot.PNG" alt="">
+                        </a>
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <a href="https://fayevivi.github.io/ARMANI-HOTEL-layout-practice/ARMANI_HOTEL.html"
+                            target="_blank">
+                            <img src="./img/ARMANI_HOTEL.sreenShot.PNG" alt="">
+                        </a>
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <a href="https://fayevivi.github.io/HERMES-layout-practice/HERMES.html" target="_blank">
+                            <img src="./img/HERMES-practice-cut.PNG" alt="">
+                        </a>
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <a href="https://fayevivi.github.io/PAZZO-layout-practice/PAZZO.html" target="_blank">
+                            <img src="./img/PAZZO ScreenShot.PNG" alt="">
+                        </a>
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <a href="https://fayevivi.github.io/stickers/sticker.html" target="_blank">
+                            <img src="./img/LINE Stickers ScreenShot.704396.PNG" alt="">
+                        </a>
+                    </div>
+                    <div class="col-10 col-sm-3 projectPic">
+                        <a href="https://fayevivi.github.io/score-js-practice/score.html">
+                            <img src="./img/score ScreenShot.PNG" alt="">
+                        </a>
+                    </div>
+
+                </div>
+
+
+        </section>
+    </section>
+
+    <script src="./jquery-3.6.0.js">
+
+    </script>
+    <script>
+        // 動態文字效果
+        var current = 1; //keeps track of the current div
+        var height = $('.roles').height(); //the height of the roles div
+        var numberDivs = $('.roles').children().length; //the number of children of the roles div
+        var first = $('.roles div:nth-child(1)'); //the first div nested in roles div
+        setInterval(function () {
+            var number = current * -height;
+            first.css('margin-top', number + 'px');
+            if (current === numberDivs) {
+                first.css('margin-top', '0px');
+                current = 1;
+            } else current++;
+        }, 2000);
+
+        // 滑鼠滾動換頁
+
+    </script>
+</body>
+
+</html>
