@@ -13,26 +13,314 @@
         body {
             margin: 0px;
             padding: 0px;
+            width: 100%;
+        }
+
+
+        .navBar {
+            padding: 30px 0px;
+            position: fixed;
+            width: 100%;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.219);
+
+        }
+
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            font-size: 22px;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:active {
+            color: black;
+        }
+
+        ul {
+            list-style-type: none;
+            gap: 10px;
+        }
+
+        #banner {
+            height: 100vh;
+        }
+
+        .bannerWrap {
+            position: relative;
+        }
+
+        .bannerImgWrap {
+            width: 100%;
+            height: 100vh;
+            object-fit: contain;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width:576px) {
+            .container {
+                padding: 0px 30px;
+            }
+
+            .bannerImgWrap img {
+                height: 100%;
+            }
+        }
+
+        .bannerWrap div {
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        /* 設定動畫週期。 */
+        .bannerWrap div {
+            opacity: 0;
+            filter: alpha(opacity=0);
+            -webkit-animation: round 25s linear infinite;
+            animation: round 25s linear infinite;
+        }
+
+        @-webkit-keyframes round {
+            4% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 0 - 1秒 淡入*/
+            }
+
+            20% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 1- 5秒靜止*/
+            }
+
+            24% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+                /* 5-6秒淡出*/
+            }
+        }
+
+        @keyframes round {
+            4% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 0 - 1秒 淡入*/
+            }
+
+            20% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 1- 5秒靜止*/
+            }
+
+            24% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+                /* 5-6秒淡出*/
+            }
+        }
+
+        /* 每張圖片進場時間相隔5秒 */
+        .bannerWrap div:nth-child(5) {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+
+        .bannerWrap div:nth-child(4) {
+            -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+        }
+
+        .bannerWrap div:nth-child(3) {
+            -webkit-animation-delay: 10s;
+            animation-delay: 10s;
+        }
+
+        .bannerWrap div:nth-child(2) {
+            -webkit-animation-delay: 15s;
+            animation-delay: 15s;
+        }
+
+        .bannerWrap div:nth-child(1) {
+            -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+        }
+
+        /* 當滑鼠在畫面上，停止動畫 */
+        /* .bannerWrap:hover div {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        } */
+
+        .bannerArea {
+            position: relative;
+        }
+
+        .homeWrap {
+            position: absolute;
+            z-index: 99999;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        .profilePicWrap {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .hometext {
+            margin-top: 30px;
+            font-size: 30px;
+            height: 50px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hometext div {
+            color: rgb(42, 42, 42);
+            height: 50px;
+            transition: margin-top 1s ease-in-out;
+            text-shadow: black 0.1em 0.1em 0.2em
+        }
+
+        #about {
+            width: 100%;
+            height: 100vh;
+            background-color: aquamarine;
         }
     </style>
 </head>
 
 <body>
     <nav class="navBar">
-        <div class="container">
+        <div class="container d-flex align-items-center justify-content-between">
             <div class="logo">
                 <a href="#">Vivi</a>
             </div>
-            <div class="listRightWrap">
-                <ul>
+            <div class="listRightWrap ">
+                <ul class="d-flex align-items-center mb-0">
                     <li><a href="#">HOME</a></li>
-                    <li><a href="#">HOME</a></li>
-
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SKILL</a></li>
+                    <li><a href="#">WORK</a></li>
+                    <li><a href="#">CONTACT</a></li>
                 </ul>
             </div>
 
         </div>
     </nav>
+    <div id="banner">
+        <div class="bannerArea">
+
+            <div class="bannerWrap">
+                <div class="bannerImgWrap ">
+                    <img id="bannerImgWrap1" src="./img/pexels-pixabay-162616.jpg" alt="">
+                </div>
+                <div class="bannerImgWrap">
+                    <img id="bannerImgWrap2" src="./img/computer-820281_1920.jpg" alt="">
+                </div>
+                <div class="bannerImgWrap">
+                    <img id="bannerImgWrap3" src="./img/pencils-762555_1920.jpg" alt="">
+                </div>
+                <div class="bannerImgWrap">
+                    <img id="bannerImgWrap4" src="./img/pexels-jessica-lewis-583846.jpg" alt="">
+                </div>
+                <div class="bannerImgWrap">
+                    <img id="bannerImgWrap5" src="./img/pexels-dominika-roseclay-1036841.jpg" alt="">
+                </div>
+            </div>
+            <div class="homeWrap">
+                <div class="profilePicWrap">
+                    <img src="./img/1604330362561sharp.jpg" alt="">
+                </div>
+                <div class="hometext">
+                    <div>
+                        I'm a web developer.
+                    </div>
+                    <div>
+                        front-end engineer.
+                    </div>
+                    <div>
+                        I take challengings.
+                    </div>
+                    <div>
+                        I'm resposible.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+
+    </div>
+
+    <script src="./jquery-3.6.0.js">
+
+    </script>
+    <script>
+        // 動態文字效果
+        var current = 1; //keeps track of the current div
+        var height = $('.hometext').height(); //the height of the hometext div
+        var numberDivs = $('.hometext').children().length; //the number of children of the hometext div
+        var first = $('.hometext div:nth-child(1)'); //the first div nested in hometext div
+        setInterval(function () {
+            var number = current * -height;
+            first.css('margin-top', number + 'px');
+            if (current === numberDivs) {
+                first.css('margin-top', '0px');
+                current = 1;
+            } else current++;
+        }, 2000);
+
+
+
+        let windowScrollTopVvVv = $(this).scrollTop();
+        let windowWidthVv = $(window).width();
+        $(window).resize(function () {
+
+            windowWidthVv = $(window).width();
+
+            if (windowWidthVv < 576) {
+                console.log('<576');
+                $('#bannerImgWrap1').attr('src', './img/pexels-pixabay-162616h.jpg');
+                $('#bannerImgWrap2').attr('src', './img/computer-820281_1920h.jpg');
+                $('#bannerImgWrap3').attr('src', './img/pencils-762555_1920h.jpg');
+                $('#bannerImgWrap4').attr('src', './img/pexels-jessica-lewis-583846h.jpg');
+                $('#bannerImgWrap5').attr('src', './img/pexels-dominika-roseclay-1036841h.jpg');
+            }
+            else {
+                $('#bannerImgWrap1').attr('src', './img/pexels-pixabay-162616.jpg');
+                $('#bannerImgWrap2').attr('src', './img/computer-820281_1920.jpg');
+                $('#bannerImgWrap3').attr('src', './img/pencils-762555_1920.jpg');
+                $('#bannerImgWrap4').attr('src', './img/pexels-jessica-lewis-583846.jpg');
+                $('#bannerImgWrap5').attr('src', './img/pexels-dominika-roseclay-1036841.jpg');
+            }
+        });
+
+        let bannerHeight = $('.bannerWrap').offset();
+        console.log(bannerHeight, 'bannerHeight');
+
+
+    </script>
 </body>
 
 </html>
