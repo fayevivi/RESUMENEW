@@ -10,10 +10,13 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/all.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
         body {
             margin: 0px;
             padding: 0px;
             width: 100%;
+            font-family: 'Noto Sans TC', sans-serif;
         }
 
 
@@ -202,10 +205,78 @@
             text-shadow: black 0.1em 0.1em 0.2em
         }
 
+        /* about section */
         #about {
             width: 100%;
             height: 100vh;
             background-color: aquamarine;
+        }
+
+        .aboutArea {
+            height: 100%;
+        }
+
+
+        .aboutPicWrap {
+            width: 300px;
+            height: 350px;
+            overflow: hidden;
+            object-fit: contain;
+        }
+
+
+
+        .aboutTextArea {
+            background-color: azure;
+            word-wrap: break-word;
+        }
+
+        .aboutTextArea p {
+            margin: 0;
+        }
+
+        .iconWrap {
+            font-size: 20px;
+        }
+
+        i {
+            width: 100%;
+            height: 100%;
+            margin: 5px;
+        }
+
+        .downloadCV {
+            width: fit-content;
+            padding: 10px 20px;
+            background-color: black;
+        }
+
+        .downloadCV h6 {
+            margin: 0;
+            color: white;
+        }
+
+        @media (max-width:576px) {
+            .aboutTextArea {
+                padding: 50px 10px;
+            }
+        }
+
+        #skill {
+            background-color: #f2f2f2;
+        }
+
+        #skill .container {
+            text-align: center;
+            padding: 50px 30px;
+        }
+
+        .icon {
+            font-size: 30px;
+        }
+
+        .textWrap {
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -218,8 +289,8 @@
             </div>
             <div class="listRightWrap ">
                 <ul class="d-flex align-items-center mb-0">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#banner">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
                     <li><a href="#">SKILL</a></li>
                     <li><a href="#">WORK</a></li>
                     <li><a href="#">CONTACT</a></li>
@@ -228,9 +299,8 @@
 
         </div>
     </nav>
-    <div id="banner">
+    <section id="banner">
         <div class="bannerArea">
-
             <div class="bannerWrap">
                 <div class="bannerImgWrap ">
                     <img id="bannerImgWrap1" src="./img/pexels-pixabay-162616.jpg" alt="">
@@ -268,10 +338,144 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="about">
+    </section>
+    <section id="about">
+        <div class="aboutArea container d-flex flex-column justify-content-center align-item-center">
+            <div class="row d-flex-column justify-content-center align-item-center ">
+                <div class="aboutPicWrap col-sm-4 d-none d-sm-flex">
+                    <img src="./img/IMG_5643 (1).jpg" alt="">
+                </div>
+                <div class="aboutTextArea col-10 col-sm-5 d-flex flex-column justify-content-between ">
+                    <h1>About Me</h1>
+                    <p class="d-none d-sm-block">
+                        我叫Vivi<br>
+                        正朝向網頁前端工程師邁進<br>
+                        歷經了長達6個月的密集訓練<br>
+                        從零基礎到現在已可以獨立完成網頁<br>
+                        截至目前為止我已完成12項以上網頁相關的作品<br>
+                        其中包含切版、RWD、js的動態效果、串接API、<br>
+                        自建MySQL資料庫、Php、UIUX網頁開發相關技能<br>
+                        以及繪圖軟體Ai、Ps<br>
+                        歡迎到我的作品集參閱
+                    </p>
+                    <p class="d-block d-sm-none">
+                        我叫Vivi<br>
+                        正朝向網頁前端工程師邁進。
+                        歷經了長達6個月的密集訓練，
+                        從零基礎到現在已可以獨立完成網頁，
+                        截至目前為止我已完成12項以上網頁相關的作品，
+                        其中包含切版、RWD、js的動態效果、串接API、
+                        自建MySQL資料庫、Php、UIUX網頁開發相關技能
+                        以及繪圖軟體Ai、Ps。<br>
+                        歡迎到我的作品集參閱
+                    </p>
+                    <div class="iconWrap d-flex">
+                        <div class="github"><a href="https://github.com/fayevivi" target="_blank"><i
+                                    class="fab fa-github"></i></a></div>
+                        <!-- <div class="instagram"><a href="https://www.instagram.com/cestlavi_vi/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a></div> -->
+                        <div class="linkedin"><a href="https://www.linkedin.com/in/siao-ting-huang-1b3a34144/"
+                                target="_blank"><i class="fab fa-linkedin-in"></i></a></div>
+                    </div>
+                    <button class="downloadCV">
+                        <a href="https://drive.google.com/file/d/15LJdqm1-MM9HlKHUqd16G7Ix3RLyZUug/view?usp=sharing"
+                            target="_blank">
+                            <h6>DOWNLOAD CV</h6>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skill">
+        <div class="container">
+            <div class="textWrap">
+                <h1>Skill</h1>
+                <h3>what I can do</h3>
+            </div>
+            <div class="row flex-wrap">
+                <div class="col-12 col-sm-4 d-flex justify-content-center flex-column  align-items-center">
+                    <div class="skilliconWrap">
+                        <div class="icon">
+                            <i class="fas fa-code"></i></i>
+                        </div>
+                    </div>
+                    <div class="iconDescribe">
+                        <h6>Front-end</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quos illo. Unde, dolor sequi
+                            accusamus magnam nisi voluptates. Maiores magni vel ex, sequi deserunt consectetur
+                            doloremque dolorem consequatur voluptas recusandae.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 d-flex justify-content-center flex-column  ">
+                    <div class="skilliconWrap">
+                        <div class="icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                    </div>
+                    <div class="iconDescribe">
+                        <h6>Back-end</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quos illo. Unde, dolor sequi
+                            accusamus magnam nisi voluptates. Maiores magni vel ex, sequi deserunt consectetur
+                            doloremque dolorem consequatur voluptas recusandae.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 d-flex justify-content-center flex-column  ">
+                    <div class="skilliconWrap">
+                        <div class="icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <div class="iconDescribe">
+                        <h6>RWD</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quos illo. Unde, dolor sequi
+                            accusamus magnam nisi voluptates. Maiores magni vel ex, sequi deserunt consectetur
+                            doloremque dolorem consequatur voluptas recusandae.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 d-flex justify-content-center flex-column  ">
+                    <div class="skilliconWrap">
+                        <div class="icon">
+                            <i class="fas fa-draw-polygon"></i>
+                        </div>
+                    </div>
+                    <div class="iconDescribe">
+                        <h6>UIUX</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quos illo. Unde, dolor sequi
+                            accusamus magnam nisi voluptates. Maiores magni vel ex, sequi deserunt consectetur
+                            doloremque dolorem consequatur voluptas recusandae.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 d-flex justify-content-center flex-column  ">
+                    <div class="skilliconWrap">
+                        <div class="icon">
+                            <i class="fas fa-draw-polygon"></i>
+                        </div>
+                    </div>
+                    <div class="iconDescribe">
+                        <h6>Graphic</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quos illo. Unde, dolor sequi
+                            accusamus magnam nisi voluptates. Maiores magni vel ex, sequi deserunt consectetur
+                            doloremque dolorem consequatur voluptas recusandae.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 d-flex justify-content-center flex-column  ">
+                    <div class="skilliconWrap">
+                        <div class="icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                    <div class="iconDescribe">
+                        <h6>Version control</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quos illo. Unde, dolor sequi
+                            accusamus magnam nisi voluptates. Maiores magni vel ex, sequi deserunt consectetur
+                            doloremque dolorem consequatur voluptas recusandae.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </div>
+    </section>
 
     <script src="./jquery-3.6.0.js">
 
